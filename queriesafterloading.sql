@@ -1,5 +1,0 @@
-select co.courseofferid, co.courseid, co.year, co.quartile, c.coursename, c.coursedescription, c.degreeid, c.ects, d.dept, d.degreedescription, d.totalects, t.teacherid, t.teachername, t.address, t.birthyearteacher, t.gender from courseoffers co, courses c, degrees d, teachers t, teacherassignmentstocourses tac where tac.courseofferid = 1 and co.courseofferid = 1 and tac.teacherid = t.teacherid and co.courseid = c.courseid and c.degreeid = d.degreeid;
-
-select co.courseofferid, co.courseid, co.year, co.quartile, s.studentid, s.studentname, s.address, s.birthyearstudent, s.gender, d.degreeid, d.dept, d.degreedescription, d.totalects from courseoffers co, courses c, students s, courseregistrations cr, degrees d, studentregistrationstodegrees srd where cr.studentregistrationid = 3 and srd.studentregistrationid = 3 and s.studentid = srd.studentid and cr.courseofferid = co.courseofferid and srd.degreeid = d.degreeid;
-
-select sum(grade)*1.0/count(courseofferid)*1.0 as avg from courseregistrations where studentregistrationid = 3;
