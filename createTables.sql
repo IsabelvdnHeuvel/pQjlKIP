@@ -14,7 +14,4 @@ CREATE TABLE TeacherAssignmentsToCourses (CourseOfferId int, TeacherId int);
 
 CREATE TABLE StudentAssistants (CourseOfferId int, StudentRegistrationId int);
 
-CREATE TABLE CourseRegistrations (CourseOfferId int, StudentRegistrationId int, Grade varchar(4))
-UPDATE CourseRegistrations SET Grade='0' WHERE Grade='null';
-
-ALTER TABLE CourseRegistrations ALTER COLUMN Grade TYPE integer using Grade::integer;
+CREATE TABLE CourseRegistrations (CourseOfferId int, StudentRegistrationId int, Grade int NOT NULL)
