@@ -14,4 +14,4 @@ CREATE TABLE TeacherAssignmentsToCourses (CourseOfferId int, TeacherId int);
 
 CREATE TABLE StudentAssistants (CourseOfferId int, StudentRegistrationId int);
 
-CREATE TABLE CourseRegistrations (CourseOfferId int, StudentRegistrationId int, Grade int NULL)
+CREATE TABLE CourseRegistrations (CourseOfferId int, StudentRegistrationId int, Grade int NOT NULL)
