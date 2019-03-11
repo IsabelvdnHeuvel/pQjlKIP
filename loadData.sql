@@ -14,6 +14,6 @@ COPY TeacherAssignmentsToCourses (CourseOfferId, TeacherId) FROM '/mnt/ramdisk/t
 
 COPY StudentAssistants (CourseOfferId, StudentRegistrationId) FROM '/mnt/ramdisk/tables/StudentAssistants.table' DELIMITER ',' CSV HEADER;
 
-COPY CourseRegistrations (CourseOfferId, StudentRegistrationId, Grade WITH NULL AS 'Null') FROM '/mnt/ramdisk/tables/CourseRegistrations.table' DELIMITER ',' CSV HEADER;
+COPY CourseRegistrations (CourseOfferId, StudentRegistrationId, Grade NULL'Null') FROM '/mnt/ramdisk/tables/CourseRegistrations.table' DELIMITER ',' CSV HEADER;
 
 ANALYZE VERBOSE;
