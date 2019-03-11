@@ -16,8 +16,4 @@ COPY StudentAssistants (CourseOfferId, StudentRegistrationId) FROM '/mnt/ramdisk
 
 COPY CourseRegistrations (CourseOfferId, StudentRegistrationId, Grade) FROM '/mnt/ramdisk/tables/CourseRegistrations.table' DELIMITER ',' CSV HEADER;
 
-UPDATE CourseRegistrations SET Grade='0' WHERE Grade='null';
-
-ALTER TABLE CourseRegistrations ALTER COLUMN Grade TYPE integer using Grade::integer;
-
 ANALYZE VERBOSE;
