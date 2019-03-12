@@ -1,12 +1,8 @@
-ALTER TABLE CourseRegistrations ALTER COLUMN Grade TYPE integer USING grade::integer;
 ALTER TABLE Students ADD PRIMARY KEY (StudentID);
 ALTER TABLE Degrees ADD PRIMARY KEY (DegreeID);
 ALTER TABLE StudentRegistrationsToDegrees ADD PRIMARY KEY (StudentRegistrationID);
-ALTER TABLE StudentRegistrationsToDegrees ADD FOREIGN KEY (StudentID) REFERENCES Students(StudentID);
-ALTER TABLE StudentRegistrationsToDegrees ADD FOREIGN KEY (DegreeID) REFERENCES Degrees(DegreeID);
 ALTER TABLE Teachers ADD PRIMARY KEY (TeacherID);
 ALTER TABLE Courses ADD PRIMARY KEY (CourseID);
-ALTER TABLE Courses ADD FOREIGN KEY (DegreeID) REFERENCES Degrees(DegreeID);
 ALTER TABLE CourseOffers ADD PRIMARY KEY (CourseOfferID);
 CREATE INDEX idx_student ON StudentRegistrationsToDegrees(StudentRegistrationID);
 CREATE INDEX idx_course ON CourseOffers(CourseOfferID);
