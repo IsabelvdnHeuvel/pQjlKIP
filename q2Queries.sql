@@ -1,4 +1,4 @@
-SELECT c.CourseName, cr.grade FROM courses as c, courseoffers as co, studentregistrationstodegrees as std, courseregistrations as cr WHERE std.studentId = %1% AND std.degreeId = %2% AND cr.studentregistrationId = std.studentregistrationId AND co.courseofferid = cr.courseofferid AND c.courseid = co.courseid AND cr.grade >= 5.0 ANDCr.grade IS NOT NULL ORDER BY co.year, co.quartile, co.courseofferid;
+SELECT c.CourseName, cr.grade FROM Courses C, CourseOffers CO, StudentRegistrationsToDegrees STD, NewCR CR WHERE CR.StudentId=%1% AND STD.DegreeId=%2% AND CR.studentregistrationId = STD.studentregistrationId AND C.courseid = CR.courseid AND CR.grade >= 5.0 AND Cr.grade IS NOT NULL ORDER BY CO.year, CO.quartile, CO.courseofferid;
 SELECT 0;
 SELECT 0;
 SELECT 0;
