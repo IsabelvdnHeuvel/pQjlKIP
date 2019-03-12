@@ -16,4 +16,10 @@ COPY CourseOffers (CourseOfferId, CourseId, Year, Quartile) FROM '/mnt/ramdisk/t
 COPY TeacherAssignmentsToCourses (CourseOfferId, TeacherId) FROM '/mnt/ramdisk/tables/TeacherAssignmentsToCourses.table' DELIMITER ',' CSV HEADER;
 COPY StudentAssistants (CourseOfferId, StudentRegistrationId) FROM '/mnt/ramdisk/tables/StudentAssistants.table' DELIMITER ',' CSV HEADER;
 COPY CourseRegistrations (CourseOfferId, StudentRegistrationId, Grade) FROM '/mnt/ramdisk/tables/CourseRegistrations.table' DELIMITER ',' NULL 'null' CSV HEADER;
+ALTER TABLE Students ADD PRIMARY KEY (StudentID);
+ALTER TABLE Degrees ADD PRIMARY KEY (DegreeID);
+ALTER TABLE StudentRegistrationsToDegrees ADD PRIMARY KEY (StudentRegistrationID);
+ALTER TABLE Teachers ADD PRIMARY KEY (TeacherID);
+ALTER TABLE Courses ADD PRIMARY KEY (CourseID);
+ALTER TABLE CourseOffers ADD PRIMARY KEY (CourseOfferID);
 ANALYZE VERBOSE;
