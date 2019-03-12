@@ -1,4 +1,4 @@
-SELECT 0;
+SELECT c.CourseName, cr.grade FROM Courses C, CourseOffers CO, StudentRegistrationsToDegrees SRD, NewCR CR WHERE CR.StudentId=%1% AND STD.DegreeId=%2% AND CR.studentregistrationId = STD.studentregistrationId AND C.courseid = CR.courseid AND CR.grade >= 5.0 AND Cr.grade IS NOT NULL ORDER BY CO.year, CO.quartile, CO.courseofferid;
 SELECT 0;
 SELECT SD.DegreeID, cast(SUM(case when S.Gender='F' then 1 else 0 end) as float)/ COUNT(SD.StudentId) AS Percentage FROM StudentRegistrationsToDegrees SD JOIN Students S ON (S.StudentId=SD.StudentId) WHERE SD.StudentRegistrationId IN (SELECT E.StudentRegistrationId FROM ECTS E, Degrees D WHERE E.DegreeID=D.DegreeID AND E.sumECTS<D.TotalECTS) GROUP BY SD.DegreeID;
 SELECT (cast(SUM(CASE WHEN s.Gender = 'F' THEN 1 ELSE 0 END) as float) / COUNT(s.Gender)) as percentage FROM Students s INNER JOIN StudentRegistrationsToDegrees srd on (s.StudentId = srd.StudentId) INNER JOIN Degrees d on (srd.DegreeId = d.DegreeId) WHERE (d.Dept =  %1%);
